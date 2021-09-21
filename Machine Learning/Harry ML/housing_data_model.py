@@ -95,7 +95,7 @@ plot = housing.plot(kind ="scatter" , x = "TAXRM" , y = "MEDV",alpha = 0.8)   # 
 # option 1-->
 a = housing.dropna(subset=["RM"])    # oringinal dataframe will be unchanged
 # print(a.shape)  # we can check the shape and size of RM
-
+ 
 # Option 2-->
 b = housing.drop("RM",axis = 1) # Note that there will be no "RM" column
 # original housing dataframe will be unchanged
@@ -108,13 +108,34 @@ median = housing["RM"].median()
 c = housing["RM"].fillna(median)    # Note that original dataframe will not be changed
 # print(c)
 
-# Now we will do the third option using sklearn and fit into our original dataframe
+# Now, we will do the third option using sklearn and fit into our original dataframe
 # print(housing.info())
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(strategy="median")
-imputer.fit(housing)
-x = imputer.transform(housing)   # this is a numpy array
+imputer.fit(housing)    # calculate some parameters
+x = imputer.transform(housing)   # this is a numpy array and transform data in this
 
 # we will create a new dataframe for transformed dataset in which all missing values will be fit by the median values
 housing_tr = pd.DataFrame(x , columns = housing.columns)
 # print(housing_tr["RM"].describe())  
+
+
+
+# SCIKIT LEARN DESIGN ---------------->
+
+# "Primarily, three types of objects"--->
+# "1. Estimators - It estimates some parameter based on a dataset.
+    #  Eg. imputer. It has a fit method and transform method. Fit method - Fits the dataset and calculates internal parameters\n",
+# "2. Transformers - transform method take input and returns output based on the learnings
+    # from fit(). It also has a convenience function called fit_transform() which fits and then transforms.\n",
+# "3. Predictors - LinearRegression model is an example of predictor.
+    #  fit() and predict() are two common functions. It also gives score() function which will evaluate the predictions."
+
+# FEATURE SCALING ----->
+# Primarily, two types of feature scaling methods:--->
+#     "1. Min-max scaling (Normalization)
+#     "    (value - min)/(max - min)",
+#     "    Sklearn provides a class called MinMaxScaler for this",
+#     "2. Standardization",
+#     "    (value - mean)/std",
+#     "    Sklearn provides a class called StandardScaler for this
