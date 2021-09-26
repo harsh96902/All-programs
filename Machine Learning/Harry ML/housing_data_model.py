@@ -30,7 +30,7 @@ for train_index, test_index in split.split(housing,housing['CHAS']):
     strat_train_set = housing.loc[train_index]
     strat_test_set = housing.loc[test_index]
 
-# Now we store the copy of strat_train_set in housing data
+# Now, we will store the copy of strat_train_set in housing data
 housing = strat_train_set.copy()    
 
 # print(strat_test_set['CHAS'].value_counts())
@@ -139,3 +139,5 @@ housing_tr = pd.DataFrame(x , columns = housing.columns)
 #     "2. Standardization",
 #     "    (value - mean)/std",
 #     "    Sklearn provides a class called StandardScaler for this
+
+# We will use pipeline

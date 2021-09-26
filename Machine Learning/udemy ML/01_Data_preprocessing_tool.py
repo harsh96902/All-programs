@@ -7,7 +7,7 @@ import pandas as pd
 
 # Importing the datasets --->>>
 
-dataset = pd.read_csv('data1.csv')
+dataset = pd.read_csv("data1.csv")
 #   x is independent variable--
 x = dataset.iloc[:,:-1].values  # iloc means integer location
      # we will set index of row and columns of dataframe
@@ -66,6 +66,14 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, rando
     #  we will use train test split function and test_size =0.2 means it will take
     # 20 percent of the data for the test set...
     
+
+# Feature Scaling--------->
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+x_train[: ,3:] = sc.fit_transform(x_train[: ,3:])
+x_test[: ,3:] = sc.transform(x_test[: ,3:])
+# print(x_train)
+
 
 
 
