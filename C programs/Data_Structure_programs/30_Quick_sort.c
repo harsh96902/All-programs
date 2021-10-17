@@ -21,6 +21,9 @@ int partition(int A[],int low ,int high){
         while(A[j]>pivot){
             j--;
         }
+        // int temp = A[j];
+        // A[j] = A[i];
+        // A[i] = temp;
         if(i<j){
             int temp = A[j];
             A[j] = A[i];
