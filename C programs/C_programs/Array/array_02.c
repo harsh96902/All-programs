@@ -1,17 +1,25 @@
 #include<stdio.h>
-
+int getMax(int arr1[], int m){
+    int max = 0;
+    for(int i=0;i<m;i++){
+        if(arr1[i] > max){
+            max = arr1[i];
+        }
+    }
+    return max;
+}
+int getMin(int arr2[], int n){
+    int min=arr2[0];
+    for(int i=0;i<n;i++){
+        if(arr2[i] < min){
+            min = arr2[i];
+        }
+        
+    }
+    return min;
+}
 int main(){
-    int i,marks[5];
-    for (i=0;i<5;i++)
-    {
-        printf("Enter the  marks for student%d:\n",i+1);
-        // remember that the value strt from 0 so we have to add 1
-        scanf("%d",&marks[i]);
-    }
-     for (i=0;i<5;i++)
-    {
-        printf("The value of marks for student %d is %d\n",i+1,marks[i]);
-    }
-    
-    return 0;
+    int arr1[100] = {1,5,78,4,7};
+    int arr2[100] ={4,2,5,67,2,7};
+    printf("%d",getMin(arr2,6));
 }

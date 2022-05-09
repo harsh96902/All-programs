@@ -1,0 +1,1 @@
+# Encapsulation --> hiding "sensitive" data from the user

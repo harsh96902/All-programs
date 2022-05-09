@@ -20,22 +20,27 @@ housing.hist(bins = 50,figsize = (20,15))  #histogram for our data representing
 
 # TRAIN TEST SPLITTING --------->
 from sklearn.model_selection import train_test_split
-train_set, test_set = train_test_split(housing , test_size = 0.2,random_state = 42)  #normally use random_state = 42
+train_set, test_set = train_test_split(housing , test_size = 0.2,random_state = 42)  #normally use random_state = 42,
+# we are using random_state for fixing the shuffled value of our data set
 # print("Rows for testing -> ",len(train_set),"\nRows for training -> ",len(test_set))
 
-# if we want to fix the ratio of any particular values in train_set and test_set
+# if we want to fix the ratio of any particular feautre in train_set and test_set
 # then we can use stratified shuffle slit
 from sklearn.model_selection import StratifiedShuffleSplit
-split = StratifiedShuffleSplit(n_splits = 1, test_size = 0.2, random_state = 42)
-for train_index, test_index in split.split(housing,housing['CHAS']):
+split = StratifiedShuffleSplit(n_splits = 2, test_size = 0.2, random_state = 42)  #n_split will be according to no. of which categories we want to set shufflespit
+for train_index, test_index in split.split(housing,housing['CHAS'],housing['RAD']):  # here we have added two features so, n_split = 2
     strat_train_set = housing.loc[train_index]
     strat_test_set = housing.loc[test_index]
 
 # Now, we will store the copy of strat_train_set in housing data
-housing = strat_train_set.copy()    
+housing = strat_train_set.copy()
 
 # print(strat_test_set['CHAS'].value_counts())
 # print(strat_train_set['CHAS'].value_counts())
+# print(housing.info())
+# print(strat_test_set['RAD'].value_counts())
+# print(strat_train_set['RAD'].value_counts())
+
 
 # Now the ratio of 1 and 0 in both train_set and test_set will be same 
 # 0    95
@@ -46,7 +51,7 @@ housing = strat_train_set.copy()
 # Name: CHAS, dtype: int64
 
 # LOOKING FOR A CORRELATION--------------->
-# if we want to know the strongly affected features availabel of the data
+# if we want to know the strongly affected features availabla into our dataset
 
 corr_matrix = housing.corr()
 rel = corr_matrix['MEDV'].sort_values(ascending=False)
@@ -72,7 +77,7 @@ attributes = ["MEDV","RM","ZN","LSTAT"]
 # print(scatter_matrix(housing[attributes] , figsize = (12,8)))
 
 # TRY OUT THE ATTRIBUTES COMBINATION------------>
-# It means if want to add new feature by the combination of two or more attributes then -->
+# It means, if want to add new feature by the combination of two or more attributes then -->
 
 housing["TAXRM"] = housing["TAX"]/housing["RM"]
 # TAXRM has been added in our housing data
@@ -188,8 +193,8 @@ rmse = np.sqrt(mse)
 
 # USING BETTER EVALUATION TECHNIQUE - CROSS VALIDATION
 # how it works --> lets we have data -= 1 2 3 4 5 6 7 8 9 10
-# we will find the error by testing and testing 1 by 1 
-# Use  any one for testing and other for training finding the errors
+# we will find the error by training and testing 1 by 1 
+# Use  any one for testing and other for training finding the errors and repeat the process respectively
 
 from sklearn.model_selection import cross_val_score
 scores = cross_val_score(model , housing_num_tr , housing_labels, scoring = "neg_mean_squared_error" ,cv = 10)
@@ -233,5 +238,5 @@ final_prediction = model.predict(x_test_prepared)
 final_mse = mean_squared_error(y_test , final_prediction)
 final_rmse = np.sqrt(final_mse)
 # print(final_rmse)
-print(final_prediction)  # these are the predicted values of y_test
-print(final_prediction , list(y_test))   # here, we can check by printing both
+# print(final_prediction)  # these are the predicted values of y_test
+# print(final_prediction , list(y_test))   # here, we can check by printing both

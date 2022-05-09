@@ -2,12 +2,12 @@
 #include<vector>
 using namespace std;
 void traversal(vector<int>& v){
-    int m=0 , n = v.size() -1;
-    while(m<n){
-        swap(v[m],v[n]);
-        m++;
-        n--;
-    }
+    // int m=0 , n = v.size() -1;
+    // while(m<n){
+    //     swap(v[m],v[n]);
+    //     m++;
+    //     n--;
+    // }
     for(int i = 0;i<v.size();i++){
         cout<<v[i]<<" ";
     }

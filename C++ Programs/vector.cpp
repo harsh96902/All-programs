@@ -29,6 +29,19 @@ int main(){
 
     // how to sort a vector--->>
     sort(v.begin(),v.end());
+ 
+    // how to insert element at specific index---->>
+        // where v is the vector to insert, i is
+        // the position, and value is the value
+        // v2[i] is that value which will be insert
+
+    // v.insert(v.begin() + i, v2[i])
+
+    // how to erase in a vector----->>
+    v.erase (v.begin()+5);
+
+    // erase the first 3 elements:
+    v.erase (v.begin(),v.begin()+3);
     
 
 }

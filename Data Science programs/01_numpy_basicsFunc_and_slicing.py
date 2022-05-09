@@ -8,8 +8,8 @@ array1 = np.array([[2,5,7,8,4],[2,6,46,7,8]])
 array2 = np.zeros(4)
 array4 = np.ones((4,5))
 array3 = np.zeros((4,6))   # there are two parenthesis bcz when numpy takes arguments
-# print(array3)              # that should be touple
-array5 = np.empty((5,4))   # this is for creating a empty array
+print(array2)              # that should be tuple
+array5 = np.empty((5,4))   # this is for creating an empty array
 
 # we can use these numpy function
 a = array1*array1

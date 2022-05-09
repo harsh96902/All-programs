@@ -29,6 +29,7 @@ void insertAtTail(node* &head,int val){
 void insertAtHead(node* &head,int val){
     node* n = new node();
     // node* n = new node(val);   // if we use constructor
+    n->data  = val;
     n->next = head;
     head = n;
 }
@@ -77,3 +78,19 @@ int main(){
     display(head);
     // cout<<search(head,3);
 }
+
+// void reverse(node* &head){
+//     node* temp = head;
+//     node* next = NULL;
+//     node* prev = NULL;
+//     while(temp != NULL){
+//         next = temp->next;
+
+//         temp->next = prev;
+
+//         prev = temp;
+//         temp = next;
+
+//     }
+    
+// }

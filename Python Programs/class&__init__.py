@@ -1,6 +1,6 @@
 class Employee:
     # using __init__() function 
-    def __init__(self,aname ,asalary, arole):
+    def __init__(self,aname ,asalary, arole):  # constructor
         self.name = aname 
         self.salary = asalary
         self.role = arole
