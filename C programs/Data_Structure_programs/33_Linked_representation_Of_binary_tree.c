@@ -5,9 +5,12 @@ struct Node{
     struct Node * right;
     int data;
 };
-struct Node *creatingNode(int data){
+struct Node *creatingNode(){
     struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
-    ptr->data = data;
+    int val;
+    printf("Enter val - ");
+    scanf("%d",&val);
+    ptr->data = val;
     ptr->left = NULL;
     ptr->right = NULL;
     return ptr;
@@ -58,11 +61,17 @@ int main(){
     p2->left = NULL;
     p2->right = NULL;
     */
-    struct Node *p = creatingNode(4);
-    struct Node *p1 = creatingNode(1);
-    struct Node *p2 = creatingNode(6);
-    struct Node *p3 = creatingNode(5);
-    struct Node *p4 = creatingNode(2);
+    // struct Node *p = creatingNode(4);
+    // struct Node *p1 = creatingNode(1);
+    // struct Node *p2 = creatingNode(6);
+    // struct Node *p3 = creatingNode(5);
+    // struct Node *p4 = creatingNode(2);
+    
+    struct Node *p = creatingNode();
+    struct Node *p1 = creatingNode();
+    struct Node *p2 = creatingNode();
+    struct Node *p3 = creatingNode();
+    struct Node *p4 = creatingNode();
 
     p->left = p1;
     p->right = p2;
