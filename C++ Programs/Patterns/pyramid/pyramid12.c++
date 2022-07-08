@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-//     A
-//    ABA
-//   ABCBA
-//  ABCDCBA
-// ABCDEDCBA
+//     *
+//    * *
+//   *   *
+//  *     *
+// *       *
 int main(){
     int n = 5;
     int m = n;
@@ -16,16 +16,15 @@ int main(){
                 cout<<" ";
             }
             else{
-                cout<<z;
-                if(j > n-2){
-                    z--;
+                if(j==spac || j == m-1){
+                    cout<<"*";
                 }
                 else{
-                    z++;
+                    cout<<" ";
                 }
             }            
         }
-        z = 'A';
+        // z = 'A';
         spac--;
         m++;
         cout<<"\n";

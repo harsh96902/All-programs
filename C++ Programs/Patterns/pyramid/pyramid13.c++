@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-//     A
-//    ABA
-//   ABCBA
-//  ABCDCBA
-// ABCDEDCBA
+//     1
+//    2 2
+//   3   3
+//  4     4
+// 5       5
 int main(){
     int n = 5;
     int m = n;
-    char z = 'A';
+    int z = 1;
     int spac  = n -1;
     for(int i = 0;i<n;i++){
         for(int j = 0;j<m;j++){                
@@ -16,16 +16,15 @@ int main(){
                 cout<<" ";
             }
             else{
-                cout<<z;
-                if(j > n-2){
-                    z--;
+                if(j==spac || j == m-1){
+                    cout<<z;
                 }
                 else{
-                    z++;
+                    cout<<" ";
                 }
             }            
         }
-        z = 'A';
+        z++;
         spac--;
         m++;
         cout<<"\n";

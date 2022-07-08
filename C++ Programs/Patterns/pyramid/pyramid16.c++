@@ -1,14 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
-//   A
-//  ABA
-// ABCBA
-//  ABA
-//   A
+//       *
+//      ***
+//     * * *
+//    *  *  *
+//   *   *   *
+//  *    *    *
+// *************
+//  *    *    *
+//   *   *   *
+//    *  *  *
+//     * * *
+//      ***
+//       *  
 int main(){
-    int n =3;
+    int n =7;
     int m = n;
-    char z = 'A';
     int spac  = n -1;
     for(int i = 0;i<n-1;i++){
         for(int j = 0;j<m;j++){                
@@ -16,22 +23,20 @@ int main(){
                 cout<<" ";
             }
             else{
-                cout<<z;
-                if(j>n-2){   // after mid pos element will be decrease
-                    z--;
+                if(j == spac || j == m-1 || j == n-1 ){  // using this condition
+                    cout<<"*";
                 }
                 else{
-                    z++;
+                    cout<<" ";
                 }
             }
         }
-        z = 'A';
+        // cout<<"  m = "<<m;
         spac--;
         m++;
         cout<<"\n";
     }
 
-    z = 'A';
     m = 2*n - 1;
     spac  = 0;
     for(int i = 0;i<n;i++){
@@ -40,17 +45,14 @@ int main(){
                 cout<<" ";
             }
             else{
-                cout<<z;
-                q++;
-                if(j>n-2){  // after mid pos element will be decrease
-                    z--;
+                if(j == spac || j == m-1 || i==0 || j == n-1){
+                    cout<<"*";
                 }
                 else{
-                    z++;
+                    cout<<" ";
                 }
             }
         }
-        z ='A';
         spac++;
         m--;
         cout<<"\n";
